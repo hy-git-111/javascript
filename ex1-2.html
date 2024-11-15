@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+    </head>
+
+    <body>
+        <script>
+            // 2. BMI를 계산하는 프로그램을 작성해 봅시다.
+            var input_w = prompt("체중을 입력해 주세요.(kg)");
+            var input_h = prompt("키를 입력해 주세요.(cm)");
+
+            var weight = Number(input_w);
+            var heigh = Number(input_h)/100;
+            var bmi = weight/(heigh**2);
+
+            console.log("당신의 BMI는 ", bmi.toFixed(1), "입니다.");
+        </script>
+    </body>
+</html>
+
+
