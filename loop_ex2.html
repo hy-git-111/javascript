@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            // https://codingapple.com/unit/es6-4-var-let-const-hoisting/?gad_source=1&gclid=CjwKCAiAxea5BhBeEiwAh4t5K5ta2RYQXND-LmDVZIWc-aYjdokQKXMzAwxm-THKfvLAx78lGqOYphoCcjkQAvD_BwE
+            // var : 재선언 O, 재할당 O, 범위 function
+            // let : 재선언 X, 재할당 O, 범위 {}
+            // const : 재선언 X, 재할당 X, 범위 {}
+
+            // 사용자가 입력한 수들의 갯수와 합을 구하는 프로그램(단, 0을 입력받으면 입력 종료)
+            let list = []
+            let sum = 0;
+            let n = 1;
+            
+            for (let i = 0; n != 0; i++){
+                const input = prompt("숫자를 입력한 후 [확인] 버튼을 눌러 주세요.\n숫자 입력을 종료하려면 0을 입력 해 주세요.");
+                n = Number(input);
+
+                if(n != 0){
+                    list.push(n);
+                    sum += n;
+                    console.log(`i = ${i}, n = ${n}, sum = ${sum}, list = ${list}`);
+                }
+
+                else{
+                    document.write(`입력한 ${list.length}개 수의 합은 ${sum} 입니다.`);  
+                }
+
+            }
+
+                                  
+        </script>
+    </body>
+</html>
