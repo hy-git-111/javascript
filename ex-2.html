@@ -17,12 +17,11 @@
             else{
                 for(let i = 2; i <= n; i++){
                     if(n % i === 0){
+                        console.log(i, n/i, n % i);
                         if(n === i){
-                            console.log(i, n/i, n % i);
                             document.write(`${n}은(는) 소수입니다.`);
                             break;
                         }
-                        console.log(i, n/i, n % i);
                         document.write(`${n}은(는) 소수가 아닙니다.`);
                         break;
                     }
