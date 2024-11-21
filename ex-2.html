@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    
+    <body>
+        <script>
+            // 입력한 숫자가 소수인지 아닌지 알려주는 프로그램
+            const input = prompt("소수인지 알고싶은 숫자(양수)를 입력해주세요.");
+            const n = Number(input);
+
+            if(n === 1 || n === 2 || n === 3){
+                document.write(`${n}은(는) 소수입니다.`);
+            }
+
+            else{
+                for(let i = 2; i <= n; i++){
+                    if(n % i === 0){
+                        if(n === i){
+                            console.log(i, n/i, n % i);
+                            document.write(`${n}은(는) 소수입니다.`);
+                            break;
+                        }
+                        console.log(i, n/i, n % i);
+                        document.write(`${n}은(는) 소수가 아닙니다.`);
+                        break;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
