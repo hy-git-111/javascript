@@ -1,0 +1,29 @@
+<!-- 요구사항
+1. 구구단을 계산하고 화면에 출력한다.
+- 처음에는 콘솔에 출력하는 프로그램을 작성한다.
+- 두번쨰는 html 화면에 출력하는 프로그램을 작성한다. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset>
+        <title>Multiplication table</title>
+    </head>
+
+    <body>
+        <script>
+            for(let i = 2; i <= 9; i++){
+                console.log(`구구단 ${i}단`);
+                document.write(`<br/>구구단 ${i}단<br/>`);
+
+                for(let j = 1; j <= 9; j++){
+                    const multiple = i * j;
+
+                    console.log(`${i} x ${j} = ${multiple}`);
+                    document.write(`${i} x ${j} = ${multiple}<br/>`);
+                }
+
+            }
+        </script>
+    </body>
+</html>
