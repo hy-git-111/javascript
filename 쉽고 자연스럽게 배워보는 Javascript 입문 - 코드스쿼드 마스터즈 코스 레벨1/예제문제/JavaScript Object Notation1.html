@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+    </head>
+
+    <body>
+        <script>
+            var m1 = {"name" : "object1",
+            "hp" : 100,
+            "power" : 20,
+            "attack" : function(target) {
+                target.hp -= this.power;
+                console.log(`${target.name}의 hp ${target.hp}`);
+            }};
+
+            let txt = prompt("누구를 공격하시겠습니까?");
+            
+            if(txt === "m1") {
+                m1.attack(m1);
+            }
+            else {
+                console.log(`${txt}는 공격할 수 없습니다.`)
+            }
+        </script>
+    </body>
+</html>
