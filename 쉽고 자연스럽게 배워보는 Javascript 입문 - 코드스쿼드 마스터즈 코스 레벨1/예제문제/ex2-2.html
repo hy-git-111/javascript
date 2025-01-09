@@ -1,0 +1,58 @@
+<!-- https://www.inflearn.com/courses/lecture?courseId=124917&unitId=10707&tab=curriculum -->
+<!-- 1 ~ 10000 사이의 소수를 화면에 출력하는 프로그램 -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+    </head>
+
+    <body>
+        <script>
+            numbers = {};
+            numbers.all = [];
+            numbers.prime = [];
+
+            function addNumber(number) {
+                for(let i = 2; i < number; i++){
+                    numbers.all.push(i);
+                }
+            }
+
+            function spliceNonprime(number){
+                numbers.prime = numbers.all;
+                for(let n = 2; n <= number; n++){
+                    for(let m = 2; m <= n; m++){
+                        let k = n * m;
+                        // console.log(n,m,k);
+                        if(k > n * n){
+                            break;
+                        }
+                        else if(numbers.all.includes(k) === true){
+                            for(let h = m; h <= number; h++){
+                                let index = numbers.prime.indexOf(n * h,1);
+                                if(index > 0){
+                                    numbers.prime.splice(index,1);
+                                }
+                                else{
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        let number = 30;
+
+        addNumber(number)
+        console.log(numbers.all);
+        spliceNonprime(number)
+        console.log(numbers.prime);
+
+
+        </script>
+    </body>
+</html>
