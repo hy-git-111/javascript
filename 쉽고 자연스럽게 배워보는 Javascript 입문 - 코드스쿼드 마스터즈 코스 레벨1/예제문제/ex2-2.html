@@ -1,6 +1,9 @@
 <!-- https://www.inflearn.com/courses/lecture?courseId=124917&unitId=10707&tab=curriculum -->
 <!-- 1 ~ 10000 사이의 소수를 화면에 출력하는 프로그램 -->
 
+<!-- 변수는 객체를 저장하기 위한 도구이다.
+객체에는 상태(값)와 함수(메소드)가 들어있다.
+메소드는 특정 객체에서만 동작한다.  -->
 
 <!DOCTYPE html>
 <html>
@@ -11,18 +14,21 @@
 
     <body>
         <script>
-            numbers = {};
-            numbers.all = [];
-            numbers.prime = [];
+            const numbers = {
+                all : [],
+                prime : []
+            };
 
-            function addNumber(number) {
+            // 숫자 추가 메소드
+            numbers.addNumber = function(number){
                 for(let i = 2; i < number; i++){
-                    numbers.all.push(i);
+                    this.all.push(i);
                 }
             }
 
-            function spliceNonprime(number){
-                numbers.prime = numbers.all;
+            // 소수 판별 메소드
+            numbers.spliceNonprime = function(number){
+                this.prime = this.all
                 for(let n = 2; n <= number; n++){
                     for(let m = 2; m <= n; m++){
                         let k = n * m;
@@ -30,11 +36,11 @@
                         if(k > n * n){
                             break;
                         }
-                        else if(numbers.all.includes(k) === true){
+                        else if(this.all.includes(k) === true){
                             for(let h = m; h <= number; h++){
-                                let index = numbers.prime.indexOf(n * h,1);
-                                if(index > 0){
-                                    numbers.prime.splice(index,1);
+                                let index = this.prime.indexOf(n * h,0);
+                                if(index > -1){     // index값이 없으면 return -1
+                                    this.prime.splice(index,1);
                                 }
                                 else{
                                     break;
@@ -47,9 +53,9 @@
 
         let number = 30;
 
-        addNumber(number)
+        numbers.addNumber(number)
         console.log(numbers.all);
-        spliceNonprime(number)
+        numbers.spliceNonprime(number)
         console.log(numbers.prime);
 
 
