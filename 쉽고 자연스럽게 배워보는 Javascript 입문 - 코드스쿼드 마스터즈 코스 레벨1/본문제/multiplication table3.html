@@ -1,0 +1,59 @@
+<!-- 요구사항
+ 1. 사용자의 입력값에 맞는 구구단을 출력한다.
+ 2. 객체와 메소드를 사용한다. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>multiplication table with array</title>
+    </head>
+
+    <body>
+        <h1>계산할 구구단의 단수를 입력해 주세요.</h1>
+        <input type="number" id="value">
+        <input type="button" onclick="insert()" value="calculate">
+        <p id="result"></p>
+
+        <script>
+            let multiple = {
+                n1 : [],
+                n2 : [],
+                results : [],
+            };
+
+            function insert(){
+                const input = document.getElementById("value").value;
+                const num = Number(input);
+                
+                if(num < 2 || num > 9){
+                    alert(`2이상, 9이하의 값만 입력할 수 있습니다.`);
+                }
+                else if(isNaN(num)){
+                    alert(`숫자를 입력해 주세요.`);
+                }
+                else{
+                    multiple.cal(num);                  
+                    multiple.display(num);
+                }
+            }
+
+            multiple.cal = function(num){
+                for(let i = 1; i <= 9; i++){
+                    let x = num * i;
+
+                    this.results.push(x);
+                    this.n1.push(i);
+                }
+            }
+
+            multiple.display = function(num){
+                document.write(`<h2>구구단 ${this.n1[num-1]}단</h2>`)
+
+                for(let i = 0; i < this.results.length; i++){                
+                    document.write(`${num} x ${this.n1[i]} = ${this.results[i]}<br/>`);
+                }
+            }
+        </script>
+    </body>
+</html>
