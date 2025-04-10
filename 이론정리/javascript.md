@@ -256,6 +256,25 @@ temp();
     temp()  // {a: 1, b: 2}
     ```
 
+* 함수 호출 방법
+: 함수를 변수에 담으면, 그 변수 이름으로 호출해야 함
+
+```js
+const person = {
+  name: "영희",
+
+  sayHello() {
+    // 일반 함수 (메서드 축약형)
+    console.log("일반 함수의 this.name:", this.name);
+  }
+};
+
+person.sayHello(); 
+
+const say = person.sayHello;
+say();  // 함수 호출
+```
+
 <br/>
 
 ### 함수 표현식
@@ -396,6 +415,25 @@ forEach((매개변수1, 매개변수2) => {반환할 내용})
 * Math.floor(10.9) : 내림 함수
 * Math.found(10.9) : 반올림 함수
 * Math.random() : 랜덤 함수
+
+### async 함수
+: Promise를 반환하는 비동기 함수
+    * Promise를 반환하기 때문에 내부에서 await 사용 가능
+    * Promise를 반환하지 못하는 함수는 wait 불가
+
+```js
+// 일반 함수 버전
+async function myFunction() {
+    // 비동기 작업 가능
+    return '결과';
+}
+
+// 화살표 함수 버전
+const myFunction = async () => {
+    // 비동기 작업 가능
+    return '결과';
+};
+```
 
 <br/>
 
@@ -578,7 +616,7 @@ class Animal {
         this.name = name;   // Animal의 name 객체 생성
     }
     
-    // 클래스 내에서 함수 선언 시 함수 키워스 사용 X
+    // 클래스 내에서 함수 선언 시 함수 키워드 사용 X
     speak() {
         console.log(`${this.name}`) // this.name 은 Animal의 name 객체
     }
