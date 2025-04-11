@@ -234,3 +234,16 @@ const driver = await new Builder().forBrowser('chrome').build();
 const uploadInput = await driver.findElement(By.css('input.hidden'));
 await uploadInput.sendKeys(imgSource);  // 파일 업로드
 ```
+
+<br/>
+
+# JavaScript 직접 실행
+* executeScript()  
+: 강제 이벤트 발생, 숨겨진 요소 제어, 브라우저 정보 추출, 스크롤 제어 등 WebDriver API만으로 수행하기 어려운 작업 수행
+
+```
+driver.executeScript("js code", [arguments])
+```
+
+* executeAsyncScript()  
+: AJAX 요청, setTimeout등 브라우저 컨텍스트에서 비동기 작업을 실행하고 완료 시 결과 반환
