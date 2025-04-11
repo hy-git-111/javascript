@@ -73,7 +73,7 @@ await driver.sleep(ms);
 명시적 대기와 혼용시 예상치 못한 동작 발생 가능
 
 ```js
-await driver.manage().setRimeouts({implicit: 10000});   // 10초
+await driver.manage().setTimeouts({implicit: 10000});   // 10초
 ```
 
 * 명시적 대기 (Explicit Wait)
