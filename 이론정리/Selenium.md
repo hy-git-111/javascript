@@ -8,6 +8,8 @@
 <br/>
 
 # Locator
+* ID : 가장 빠르고 안정적인 고유값
+* NAME : ID 다음으로 많이 사용됨
 * CSS Selector(Cascading Style Sheets Selector)  
 : 웹 페이지의 디자인 정의를 위해 사용되는 CSS를 locator로 사용하여 대부분의 요소를 쉽게 선택 할 수 있고 브라우저 네이티브 기능 사용 가능함
 
@@ -31,12 +33,16 @@ const elemByName = await driver.findElement(By.name('name'));   // form 요소�
 const elemByClassName = await driver.findElement(By.name('className')); // 복합 클래스는 selector 사용
 const elemByTagName = await driver.findElement(By.tagName('tagName'));
 
-const elemByLink = await driver.findElement(By.linkText('linkText'));
+const elemByLink = await driver.findElement(By.linkText('linkText'));   // <a>태그 전용
 const elemByPartialLink = await driver.findElement(By.partialLinkText('partialLinkText'));  // 텍스트가 동적으로 변하거나 너무 길때 사용
 
 const elemBySelector = await driver.findElements(By.css('button.class'));
 const elemByXpath = await driver.findElement(By.xpath('xpath'));
 ```
+
+> <span style="color:darkgray">**브라우저 콘솔에서 요소 확인하는 법  
+CSS : $$("선택자")  
+XPATH : $x("선택자")**</span>
 
 <br/>
 
@@ -70,7 +76,8 @@ await driver.sleep(ms);
 
 * 암시적 대기 (Implicit Wait)
 : 요소를 즉시 찾지 못하면 지정된 시간동안 DOM을 주기적으로 재탐색, 
-명시적 대기와 혼용시 예상치 못한 동작 발생 가능
+명시적 대기와 혼용시 예상치 못한 동작 발생 가능  
+<u>**한번 설정하면 모든 findElement에 적용됨**</u>
 
 ```js
 await driver.manage().setTimeouts({implicit: 10000});   // 10초
