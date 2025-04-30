@@ -7,36 +7,6 @@
     * 포멧 변환 함수, 랜덤 데이터 생성 함수, 커스텀 wait 함수, API 호출 함수 등
 <br/>
 
-## POM
-: 디자인 패턴 중 하나, 웹 페이지 또는 UI의 중요 컴포넌트를 하나의 클래스(객체)로 추상화
-
-<span style="color:darkgray">**디자인 패턴 : 클래스의 복잡성으로 인해 사이드 이펙트 발생 > 이를 해결하기 위해 미리 클래스의 디자인을 제시한 것  
-Builder : 디자인 패턴 중 하나, 빌드를 할때 형식을 미리 제시한 빌더 패턴**</span>
-
-* 설계 원칙
-    * 1 Class per Page/Component  
-    : 클래스 하나 당 웹 애플리케이션의 각 페이지 또는 주요 UI 컴포넌트(로그인 폼, 헤더 등)마다 클래스 작성
-
-    * Represent Elements(요소 표현)  
-    : 클래스 내부에 해당 페이지의 Locator 정의
-
-    * Encapsulate Actions(동작 캡슐화)  
-    : 사용자가 HTML 코드를 보지 않아도 테스트코드를 이해할 수 있도록 작성
-
-    * No Assertions in Page Objects  
-    : 페이지 객체는 테스트 결과 검증(Assertion) 로직을 포함하지 않아야 함
-
-    * Return Next Page Object (Optional but useful)  
-    : 액션 수행 결과 다른 페이지로 이동하는 경우, 해당 페이지의 객체를 반환하여 메서드 체이닝 가능
-
-* BasePage  
-: 여러 페이지 객체에서 공통으로 사용되는 요소나 메서드를 정의해놓은 클래스
-
-* Component Objects
-: 페이지 내의 재사용 가능한 복잡한 UI 컴포넌트(예: 날짜 선택 위젯, 그리드 테이블)를 별도의 객체로 분리
-
-<br/>
-
 ## 코드 구조
 ```js
 import { Builder, By, until } from "selenium-webdriver";
